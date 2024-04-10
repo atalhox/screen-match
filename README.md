@@ -1,16 +1,30 @@
-# Project Title
+# Alura Screen Match
 
-This project exists because there is a need for "XXXXXXXXXX." Thinking about solving this problem, the project was born with the objective of "XXXXXXXXXX" because in this way, it is possible for the problem "XXXXXXXXXX" to be resolved in an optimized way. This project was developed using the language "XXXXXXXXXX".
-
+Repository for an Alura Challenge named Screen Match. 
 ## Objectives
 
-The problem "XXXXXXXXXX" appeared when the user felt the need to perform "XXXXXXXXXX" and did not find a simple way to do it. To meet the functionality of "XXXXXXXXXX," the application "XXXXXXXXXX" was developed to optimize this.
+It must calculate some basical bank operations: 
+- Show a menu with current status of account;
+- Show a menu with available operations;
+    - Check current balance;
+    - Withdraw;
+    - Transfer value;
+    - Exit menu;
+- Keeps running if solicitated. 
+
 
 ## Project Requirements
 
-- [X] Functionality A;
-- [ ] Functionality B;
-- [ ] Functionality C.
+- [] Show current status of account;
+- [] Show available operations;
+- [] Execute operations with success; 
+
+### Extras
+
+As a personal extra challange: 
+
+- [] Instantiate a database SQL or NoSQL to persist;
+- [] Use docker;
 
 ## Getting Started
 
@@ -18,50 +32,49 @@ Make sure to set up your environment with the tools, languages, and frameworks u
 
 ## Compatibility Matrix
 
-| Tool         | Supported Version |
-|--------------|:-----------------:|
-| Tool 1       |        X.X        |
-| Tool 2       |       X.X.X       |
+| Tool             | Supported Version |
+|------------------|:-----------------:|
+| Java             |        11.0+      |
+| Docker           |        26.0       |
+| Docker-compose   |        2.23.3     |
 
-### Installation - MySQL Server (Example)
 
-To install the MySQL Server, follow the installation as per the [official documentation](https://dev.mysql.com/doc/refman/5.7/en/installing.html).
+### Installation - MySQL
 
-There is an example in the MYSQL directory.
+To install the MySQL Server, follow the installation as per the [official documentation](https://dev.mysql.com/doc/refman/5.7/en/installing.html). 
+Or, yor can use the docker-compose file: 
+
+```yaml
+version: '3.1'  # Use version 3.1 or higher
+
+services:
+  db:
+    image: mysql:8.0  # Use the latest MySQL image
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: rd$-X4Q?w12pD!,5  # Define the root password
+      MYSQL_DATABASE: alura  # Define the name of the database to be created on startup
+      MYSQL_USER: admin  # Define a user
+      MYSQL_PASSWORD: admin  # Define the user's password
+    ports:
+      - "3306:3306"  # Map the default MySQL port from the container to the host
+    volumes:
+      - ./mydb:/var/lib/mysql  # Persist database data
+``` 
 
 ## Configuration
 
-### Setting up Environment
+### MySQL
 
-Configure the .env file as below. For more details, check the project folder.
-
-```javascript
-ENVIRONMENT="dev"
-APPLICATION_NAME="my-app"
-```
+Run the follow
 
 ## Application Usage
 
 To run the application, execute the command below in a terminal:
 
 ```powershell
-node index.js
+mvn spring-boot:run
 ```
-
-## Automated Testing
-
-Execute the command below in a terminal:
-
-```powershell
-npm test
-```
-
-## To-do
-
-The following functionalities can still be implemented:
-
-- [ ] Functionality 1;
-- [ ] Functionality 2.
 
 ## How to Contribute
 

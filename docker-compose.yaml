@@ -1,0 +1,17 @@
+version: '3.1'  # Use version 3.1 or higher
+
+services:
+  db:
+    container_name: alura_db
+    image: mysql:8.0  # Use the latest MySQL image
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: rd$-X4Q?w12pD!,5  # Define the root password
+      MYSQL_DATABASE: alura  # Define the name of the database to be created on startup
+      MYSQL_USER: admin  # Define a user
+      MYSQL_PASSWORD: admin  # Define the user's password
+    ports:
+      - "3306:3306"  # Map the default MySQL port from the container to the host
+    volumes:
+      - ./database/alura:/var/lib/mysql  # Persist database data
+      - ./database/init-scripts:/docker-entrypoint-initdb.d
